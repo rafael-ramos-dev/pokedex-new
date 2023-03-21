@@ -1,8 +1,8 @@
 import styled, {css} from 'styled-components/native';
 
-export const Container = styled.TouchableOpacity<PokemonType>`
-    ${({theme, type}) => css`
-        background-color: ${theme.colors.backgroundCard[type]};
+export const Container = styled.TouchableOpacity<pokeTypeName>`
+    ${({theme, typeName}) => css`
+        background-color: ${theme.colors.backgroundCard[typeName]};
         border-radius: 10px;
         margin-top: 30px;
         flex-direction: row;
@@ -18,7 +18,7 @@ export const LeftSide = styled.View`
 export const PokemonId = styled.Text`
     ${({theme}) => css`
         font-weight: bold;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 14px;
         color: ${theme.colors.lightText};
     `}
@@ -47,13 +47,13 @@ export const PokemonContentType = styled.View`
     flex-direction: row;
 `;
 
-export const PokemonType = styled.View`
-    ${({theme, type}) => css`
-        background: ${theme.colors.boxType[type]};
+export const PokemonType = styled.View<pokeTypeName>`
+    ${({theme, typeName}) => css`
+        background: ${theme.colors.boxType[typeName]};
         padding: 5px;
         width: 65px;
         height: 25px;
-        border-radius: 3px;
+        border-radius: 5px;
         margin-left: 5px;
         margin-top: 5px;
         justify-content: center;
@@ -87,4 +87,5 @@ export const PokemonImage = styled.Image`
     margin-top: -40px;
     width: 130px;
     height: 120px;
+    right: -10px;
 `;

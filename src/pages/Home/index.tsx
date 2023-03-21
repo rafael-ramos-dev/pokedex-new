@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 
 import { Card } from '../../components/Card';
+import { FadeAnimation } from '../../components/FadeAnimation';
 
 import { getAllPokemon } from '../../controllers/pokemon';
 import * as S from './style';
@@ -16,7 +17,7 @@ export function Home() {
 
             getAllPokemon().then(setPokemons).catch((error)=> console.log(error));
 
-            console.log(pokemons);
+            // console.log(pokemons);
             // console.log(pokemons.map(item => item.types));
         
     }, [])
@@ -28,7 +29,9 @@ export function Home() {
             data={pokemons}
             keyExtractor={pokemon => pokemon.id.toString()}
             renderItem={({item: pokemon}) => (
-                <Card data={pokemon}/>
+                <FadeAnimation>
+                    <Card data={pokemon}/>
+                </FadeAnimation>
             )}
         />
     </S.Container>

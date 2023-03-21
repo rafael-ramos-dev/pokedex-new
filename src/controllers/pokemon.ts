@@ -15,7 +15,7 @@ export async function getAllPokemon(): Promise<Pokemon[]> {
     const payloadPokemons: Array<Pokemon> = await Promise.all(
         results.map(async (pokemon: Pokemon) => {
             const {id, types} = await getMoreInfo(pokemon.url)
-
+            
             return {
                 name: pokemon.name,
                 url: pokemon.url,
